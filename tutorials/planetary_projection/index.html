@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <title>Vislumino: Astronomy Visualization Tools</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="Vislumino planetary projection tutorial">
+  <meta name="keywords" content="Vislumino,astrophotography,planetary imaging">
+  <meta name="author" content="Filip Szczerek">
+
+  <style>
+    p {
+        max-width: 55em;
+    }
+
+    .w25em {
+        width: 25em;
+    }
+
+    .w55em {
+        width: 55em;
+    }
+
+    .pad2 {
+        padding-top: 2em;
+        padding-bottom: 2em;
+    }
+
+    .infobox {
+      width: 55em;
+      padding-top: 1em;
+      padding-bottom: 1em;
+      background-color: lime;
+    }
+  </style>
+
+</head>
+
+<body>
+
+<h2>Vislumino: Planetary Projection Tutorial</h2>
+
+<em>last update: 2022-12-11</em>
+<br/>
+<br/>
+
+<p>In this mode Vislumino generates cylindrical (equirectangular or Lambert equal-area) and orthographic projection of planetary surface based on astrophotographs &mdash; especially rotation time lapses.</p>
+
+<video class="w25em" controls="true" loop="true">
+    <source src="videos/j_osc.mp4" type="video/mp4"/>
+    Your browser does not support the video tag.
+</video>
+
+<br/><em>Sample image sequence which can be processed by Vislumino.</em>
+
+<h3>Loading images and configuring projection view</h3>
+
+<p>After choosing the <strong>Planetary projection</strong> mode, use <strong>File/Load images...</strong> to load a sequence of one or more images (typically: processed stacks).</p>
+
+<img src="images/mode_selection.png" class="w55em"/>
+
+<br/>
+
+<img class="w55em" src="images/load_images.png"/>
+
+<p>Vislumino requires all images in the sequence to have the same dimensions and pixel format. The planetary disk must be located at the same position and have the same orientation. For the rotation compensation function to work correctly (see below), the time intervals between images must be equal.</p>
+
+<p>The <strong>Source images</strong> window allows reviewing of the loaded images and setting their parameters:</p>
+
+<video class="w55em pad2" controls="true">
+    <source src="videos/load_images.mp4" type="video/mp4"/>
+    Your browser does not support the video tag.
+</video>
+
+<div class="infobox">ⓘ <em>Any numeric input field can be edited manually using Ctrl+left click.</em></div>
+
+<p>Currently the planet inclination and the image roll (i.e., disk orientation) must be specified manually. It is easy to do so while looking at a cylindrical projection view, where a reference grid (note: this is <em>not</em> a latitude/longitude graticule) can be displayed:</p>
+
+<video class="w55em pad2" controls="true">
+    <source src="videos/roll_inclination_grid.mp4" type="video/mp4"/>
+    Your browser does not support the video tag.
+</video>
+
+<p>The projection view can compensate for the planet rotation, keeping the features stationary between frames:</p>
+
+<img class="w55em" src="images/rotation_compensation.png"/>
+
+<p>Clicking the <strong>auto</strong> checkbox calculates the compensation amount using the disk diameter, frame interval and rotation period specified in the <strong>Source images</strong> window:</p>
+
+<video class="w55em pad2" controls="true">
+    <source src="videos/rotation_comp.mp4" type="video/mp4"/>
+    Your browser does not support the video tag.
+</video>
+
+<p>Thanks to this feature any relative cloud band movement (as in the above video) is easier to spot.</p>
+
+<p>By adjusting the compensation slider manually the user can choose to keep different features/objects stationary, e.g., a transiting Galilean moon:</p>
+
+<video class="w55em pad2" controls="true">
+    <source src="videos/rotation_comp_2.mp4" type="video/mp4"/>
+    Your browser does not support the video tag.
+</video>
+
+<h3>Exporting projection results</h3>
+
+Clicking <strong>Export...</strong> in the projection view allows saving of all projected frames in a selected output folder. A third-party tool of user's choice can be then used to create a projection animation:
+
+<video class="w55em pad2" controls="true" loop="true">
+    <source src="videos/exported_proj.mp4" type="video/mp4"/>
+    Your browser does not support the video tag.
+</video>
+
+<h3>Disk diameter and position</h3>
+
+<p>Planetary disk detection performed by Vislumino is not always accurate. This can be tweaked in the <strong>Source images</strong> view. Note how in the below video the projected polar regions initially exhibit small distortion, which can be corrected by slightly decreasing the disk diameter:</p>
+
+<video class="w55em pad2" controls="true">
+    <source src="videos/disk_1.mp4" type="video/mp4"/>
+    Your browser does not support the video tag.
+</video>
+
+<h3>Globe view</h3>
+
+<strong>Globe view</strong> shows an orthographic projection of the planet. The globe's orientation can be changed by mouse dragging with the left button pressed; the mouse wheel changes the zoom level.
+
+<video class="w55em pad2" controls="true">
+    <source src="videos/globe.mp4" type="video/mp4"/>
+    Your browser does not support the video tag.
+</video>
+
+<h3>Window management</h3>
+
+<p>Multiple projection views can be opened simultaneously; windows can be docked together, or at the main application window:</p>
+
+<video class="w55em pad2" controls="true">
+    <source src="videos/windows.mp4" type="video/mp4"/>
+    Your browser does not support the video tag.
+</video>
+
+<br/><br/><br/><br/><br/><br/><br/><br/>
+
+<div style="background-color: lightgrey; width: 55em; padding: 1em">
+    author: Filip Szczerek
+    <br/><br/>
+    This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.<br/><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>
+</div>
+
+</body>
+
+
+</html>
