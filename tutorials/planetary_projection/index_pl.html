@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+
+<head>
+  <title>Vislumino: wizualizacje astronomiczne</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="Odwzorowania kartograficzne planet w Vislumino - samouczek">
+  <meta name="keywords" content="Vislumino,astrofotografia,astrofotografia planet">
+  <meta name="author" content="Filip Szczerek">
+
+  <style>
+    p {
+        hyphens: auto;
+        max-width: 55em;
+    }
+
+    .w25em {
+        width: 25em;
+    }
+
+    .w55em {
+        width: 55em;
+    }
+
+    .pad2 {
+        padding-top: 2em;
+        padding-bottom: 2em;
+    }
+
+    .infobox {
+      width: 55em;
+      padding-top: 1em;
+      padding-bottom: 1em;
+      background-color: lime;
+    }
+  </style>
+
+</head>
+
+<body>
+
+<h2>Samouczek Vislumino: odwzorowania kartograficzne planet</h2>
+
+<em>ostatnia aktualizacja: 2022-12-13</em>
+<br/>
+<br/>
+
+<p>W tym trybie Vislumino generuje odwzorowanie walcowe (równoodległościowe lub równopowierzchniowe Lamberta) i ortograficzne powierzchni planety w oparciu o astrofotografie &mdash; zwłaszcza sekwencje czasowe rotacji.</p>
+
+<video class="w25em" controls="true" loop="true">
+    <source src="videos/j_osc.mp4" type="video/mp4"/>
+    Twoja przeglądarka nie obsługuje elementu <strong>video</strong>.
+</video>
+
+<br/><em>Przykładowa sekwencja zdjęć, którą można odwzorować w Vislumino.</em>
+
+<h3>Ładowanie obrazów i konfigurowanie widoku odzworowania</h3>
+
+<p>Po wybraniu trybu <strong>Planetary projection</strong>, obrazy źródłowe (zwykle: obrobione stacki) ładuje się poprzez opcję menu <strong>File/Load images...</strong>.</p>
+
+<img src="images/mode_selection.png" class="w55em"/>
+
+<br/>
+
+<img class="w55em" src="images/load_images.png"/>
+
+<p>Wszystkie obrazy muszą być tej samej wielkości i tego samego formatu pikseli. Tarcza planety musi mieć stały rozmiar i orientację oraz znajdować się w tym samym miejscu. Dla prawidłowego działania funkcji kompensacji rotacji planety (zob. niżej) odstępy czasowe między zdjęciami muszą być równe.</p>
+
+<p>W oknie <strong>Source images</strong> można przejrzeć załadowane obrazy i ustawić ich parametry:</p>
+
+<video class="w55em pad2" controls="true">
+    <source src="videos/load_images.mp4" type="video/mp4"/>
+    Twoja przeglądarka nie obsługuje elementu <strong>video</strong>.
+</video>
+
+<div class="infobox">ⓘ <em>Wartość każdego pola liczbowego można edytować bezpośrednio poprzez Ctrl+lewy klik.</em></div>
+
+<p>Obecnie nachylenie osi planety (<strong>inclination</strong>) i orientacja tarczy (<strong>roll</strong>) muszą być ustawione ręcznie. Łatwo to zrobić, obserwując widok odwzorowania walcowego, gdzie można wyświetlić siatkę odniesienia (uwaga: <em>nie jest</em> to siatka kartograficzna):</p>
+
+<video class="w55em pad2" controls="true">
+    <source src="videos/roll_inclination_grid.mp4" type="video/mp4"/>
+    Twoja przeglądarka nie obsługuje elementu <strong>video</strong>.
+</video>
+
+<p>W widoku odwzorowania można włączyć kompensację rotacji planety (<strong>rotation comp.</strong>), np. by utrzymać szczegóły powierzchni w bezruchu między klatkami:</p>
+
+<img class="w55em" src="images/rotation_compensation.png"/>
+
+<p>Funkcja <strong>auto</strong> oblicza kompensacją na podstawie średnicy tarczy, odstępu czasowego klatek i okresu obrotu podanych w oknie <strong>Source images</strong>:</p>
+
+<video class="w55em pad2" controls="true">
+    <source src="videos/rotation_comp.mp4" type="video/mp4"/>
+    Twoja przeglądarka nie obsługuje elementu <strong>video</strong>.
+</video>
+
+<p>Dzięki kompensacji łatwiej jest zauważyć potencjalny ruch względny pasów chmur (jak w powyższym wideo).</p>
+
+<p>Manipulując suwakiem kompensacji, użytkownik może wybrać obiekt do unieruchomienia, np. przechodzący przed tarczą Jowisza księżyc galileuszowy:</p>
+
+<video class="w55em pad2" controls="true">
+    <source src="videos/rotation_comp_2.mp4" type="video/mp4"/>
+    Twoja przeglądarka nie obsługuje elementu <strong>video</strong>.
+</video>
+
+<h3>Eksport wyników odwzorowania</h3>
+
+<p>Przycisk <strong>Export...</strong> w widoku odzworowania służy do zapisu wygenerowanych obrazów w wybranym katalogu wyjściowym. Można z nich następnie złożyć animację (zewnętrznym narzędziem), np.:</p>
+
+<video class="w55em pad2" controls="true" loop="true">
+    <source src="videos/exported_proj.mp4" type="video/mp4"/>
+    Twoja przeglądarka nie obsługuje elementu <strong>video</strong>.
+</video>
+
+<h3>Średnica i pozycja tarczy planety</h3>
+
+<p>Automatyczne wykrywanie tarczy jest w niektórych przypadkach zawodne. Można to skorygować w oknie <strong>Source images</strong>. Przykładowo, w poniższym wideo obszary podbiegunowe wykazują w widoku odzworowania niewielką dystorsję, na którą pomaga ręczne zmniejszenie średnicy tarczy (pole <strong>disk/diameter</strong>):</p>
+
+<video class="w55em pad2" controls="true">
+    <source src="videos/disk_1.mp4" type="video/mp4"/>
+    Twoja przeglądarka nie obsługuje elementu <strong>video</strong>.
+</video>
+
+<h3>Widok globu</h3>
+
+<p>Okno <strong>Globe view</strong> pokazuje planetę w odwzorowaniu ortograficznym. Orientację można zmienić przeciągając myszą z wciśniętym lewym przyciskiem; rolka myszy zmienia powiększenie.</p>
+
+<video class="w55em pad2" controls="true">
+    <source src="videos/globe.mp4" type="video/mp4"/>
+    Twoja przeglądarka nie obsługuje elementu <strong>video</strong>.
+</video>
+
+<h3>Zarządzanie oknami</h3>
+
+<p>Możliwe jest otwarcie wielu widoków odwzorowania równocześnie. Okna można zadokować do siebie wzajemnie, jak i do głównego okna programu:</p>
+
+<video class="w55em pad2" controls="true">
+    <source src="videos/windows.mp4" type="video/mp4"/>
+    Twoja przeglądarka nie obsługuje elementu <strong>video</strong>.
+</video>
+
+<br/><br/><br/><br/><br/><br/><br/><br/>
+
+<div style="background-color: lightgrey; width: 55em; padding: 1em">
+    autor: Filip Szczerek
+    <br/><br/>
+    Niniejszy dokument udostępniony jest na licencji <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.<br/><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>
+</div>
+
+</body>
+
+
+</html>
